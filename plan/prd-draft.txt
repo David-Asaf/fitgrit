@@ -177,9 +177,9 @@ Example of a mobile fitness challenge leaderboard (sample from a group steps cha
 
 Implication for New App: There’s an opportunity for a cross-platform fitness challenge app that learns from these findings – combining broad integration (like Stridekick/ChallengeHound) with a polished, challenge-centric user experience (like Challenges or Strive) and a novel monetization (perhaps the per-challenge fee idea). The new app can fill gaps like enabling very large group challenges (thousands of users) which many friend-focused apps don’t handle, and doing so without requiring subscriptions, which appeals to users wary of yet another monthly fee. The competitive landscape shows demand for flexibility (different challenge types, team options), ease of use (invite links, auto-sync of workouts), and inclusivity (no device left behind). With this context, we now turn to a detailed Product Requirements Document for the proposed new app that addresses these needs.
 
-Product Requirements Document: “FitChal” (Fitness Challenge App)
+Product Requirements Document: “FitGrit” (Fitness Challenge App)
 
-Product Vision: FitChal is a cross-platform mobile application (iOS & Android) built with React Native (Expo) and Supabase, dedicated entirely to fitness challenges. It enables users to seamlessly create, join, and participate in fitness challenges with groups of any size – from a close circle of friends to a whole community. Unlike traditional fitness apps that emphasize solo tracking or social feeds, FitChal’s core experience is the challenge itself. It brings people together around goal-oriented fitness competitions, integrating with popular fitness data sources so everyone’s progress is counted. The monetization eschews subscriptions in favor of a simple one-time fee per challenge (scaling by group size), making it easy to start a challenge on a whim or for special events without a recurring cost burden. Our mission is to make group fitness challenges fun, inclusive, and effortless, thereby motivating users to stay active through friendly competition.
+Product Vision: FitGrit is a cross-platform mobile application (iOS & Android) built with React Native (Expo) and Supabase, dedicated entirely to fitness challenges. It enables users to seamlessly create, join, and participate in fitness challenges with groups of any size – from a close circle of friends to a whole community. Unlike traditional fitness apps that emphasize solo tracking or social feeds, FitGrit’s core experience is the challenge itself. It brings people together around goal-oriented fitness competitions, integrating with popular fitness data sources so everyone’s progress is counted. The monetization eschews subscriptions in favor of a simple one-time fee per challenge (scaling by group size), making it easy to start a challenge on a whim or for special events without a recurring cost burden. Our mission is to make group fitness challenges fun, inclusive, and effortless, thereby motivating users to stay active through friendly competition.
 
 Target Users and Archetypes
 
@@ -248,7 +248,7 @@ Core Features and Functionality
 
 3. Social & Engagement Features
 	•	User Profiles: Basic profile for each user with a display name, avatar, and connected accounts summary (e.g. icons indicating if they have a Fitbit linked, etc.). Not a social media profile, but so challenge mates can identify each other. Possibly include a short bio or fitness quote for fun. Privacy settings to allow pseudonyms if desired (some corporate users might prefer anonymity in public challenges).
-	•	Friends & Following (Later): FitChal v1 does not need a full social network of friends – challenge-centric means you interact within each challenge. However, to facilitate future re-engagement, we plan a “friends list” or at least an option to “re-invite past participants” in new challenges. This acts like a lightweight social graph. MVP can simply allow adding people by username to invite (besides links), which implicitly builds a friend list.
+	•	Friends & Following (Later): FitGrit v1 does not need a full social network of friends – challenge-centric means you interact within each challenge. However, to facilitate future re-engagement, we plan a “friends list” or at least an option to “re-invite past participants” in new challenges. This acts like a lightweight social graph. MVP can simply allow adding people by username to invite (besides links), which implicitly builds a friend list.
 	•	Challenge Feed & Chat: Within a challenge, having communication is key to group motivation. MVP will include a challenge chat feature:
 	•	A text chat thread all members can participate in. They can send messages like encouragement, tips, or playful banter (similar to Fitbit challenges’ banter and Challenges app’s wall ￼).
 	•	Possibly allow reactions or quick emojis on the leaderboard (e.g. tap a user and “high-five” them).
@@ -330,7 +330,7 @@ Future Enhancements (Longer-term ideas):
 
 User Experience & Flow
 
-We describe a few primary user flows to illustrate how a user will interact with FitChal:
+We describe a few primary user flows to illustrate how a user will interact with FitGrit:
 
 Flow 1: Create and Share a New Challenge (Small Friend Group)
 	1.	Home Screen: After login, the user sees a “Create Challenge” button (and any active or upcoming challenges listed).
@@ -350,8 +350,8 @@ Flow 1: Create and Share a New Challenge (Small Friend Group)
 	•	The group chat remains so they can congratulate and perhaps discuss the next challenge (the app could prompt “Re-match? Create a new challenge with the same group”).
 
 Flow 2: Join an Existing Challenge via Link (First-time user)
-	1.	David receives a link from a colleague for a “Workweek Workout Challenge” (goal: at least 30 active minutes each day, Mon-Fri). He’s never used FitChal.
-	2.	Clicking the link opens the Play Store (he’s on Android). He installs FitChal.
+	1.	David receives a link from a colleague for a “Workweek Workout Challenge” (goal: at least 30 active minutes each day, Mon-Fri). He’s never used FitGrit.
+	2.	Clicking the link opens the Play Store (he’s on Android). He installs FitGrit.
 	3.	On first open, the app recognizes the deep link and says “You’re invited to join ‘Acme Corp Wellness Challenge’.” He taps Sign Up, uses his Google account for quick sign-in.
 	4.	Next, it asks to connect a data source. David has a Samsung watch which syncs to Samsung Health, but since we integrated Health Connect, we instruct: “Connect to Health Connect to track your activities.” He grants permission. The app finds his active minutes for the day (say he walked 20 min at lunch).
 	5.	It then auto-joins him into the challenge. He sees the challenge details and that 50 coworkers are participating. The leaderboard might be sorted by how many days they met 30 min so far (depending on challenge rule). He’s a bit behind since he joined day 2, but he can catch up.
@@ -361,11 +361,11 @@ Flow 2: Join an Existing Challenge via Link (First-time user)
 Flow 3: Data Sync and Activity Logging
 	1.	Emma is in a running distance challenge (target: most miles in October). She uses Strava to record runs on her phone.
 	2.	During onboarding, Emma connected Apple Health, and her Strava app writes runs to HealthKit. After her morning run of 5 miles, Strava logs it to HealthKit.
-	3.	FitChal’s background task or push from HealthKit detects a new workout. The app retrieves the workout (5 miles running) and updates Emma’s total in the challenge.
+	3.	FitGrit’s background task or push from HealthKit detects a new workout. The app retrieves the workout (5 miles running) and updates Emma’s total in the challenge.
 	4.	Emma receives a push: “Great run! You’ve logged 5 miles towards October Run Challenge.” When she checks the app later, she sees her distance added and that she moved from 5th to 3rd place on the leaderboard.
-	5.	Another participant, Frank, doesn’t use a fancy app – he just carries his phone. He gave FitChal Google Fit access, so it counts his steps and estimates distance. His contributions update similarly (less precise for distance than Emma’s GPS data, but it’s something).
+	5.	Another participant, Frank, doesn’t use a fancy app – he just carries his phone. He gave FitGrit Google Fit access, so it counts his steps and estimates distance. His contributions update similarly (less precise for distance than Emma’s GPS data, but it’s something).
 	6.	If Emma also had a Fitbit and connected it, the app would need to avoid counting the same run twice (we handle that by prioritizing Apple Health and not double-counting Fitbit data if HealthKit already has it).
-	7.	Throughout the challenge, FitChal continues to sync periodically. Users can also open the app and pull-to-refresh if they want the latest data immediately.
+	7.	Throughout the challenge, FitGrit continues to sync periodically. Users can also open the app and pull-to-refresh if they want the latest data immediately.
 
 Flow 4: Paying for a Challenge (Monetization)
 	1.	Carlos wants to create a big public challenge for his 1000 Twitter followers – “100K Steps Weekend”. He creates the challenge, sets it public, max 1000 people.
@@ -385,11 +385,11 @@ Non-Functional Requirements
 
 Conclusion
 
-FitChal aims to combine the strengths observed in the competitive analysis: Strava’s broad device support and social feed, Fitbit’s friendly competition, Apple’s polished fitness metrics, and niche apps’ focus on ease of challenge creation and cross-platform play. By focusing on fitness challenges as the core experience, FitChal will avoid feature bloat (no endless social feed, no complex diet trackers – unless we integrate a simple Eat Well challenge mode later). This clarity of purpose will reflect in the UI/UX: users open the app and immediately engage with their challenges – checking progress, entering a new one, or creating their next competition.
+FitGrit aims to combine the strengths observed in the competitive analysis: Strava’s broad device support and social feed, Fitbit’s friendly competition, Apple’s polished fitness metrics, and niche apps’ focus on ease of challenge creation and cross-platform play. By focusing on fitness challenges as the core experience, FitGrit will avoid feature bloat (no endless social feed, no complex diet trackers – unless we integrate a simple Eat Well challenge mode later). This clarity of purpose will reflect in the UI/UX: users open the app and immediately engage with their challenges – checking progress, entering a new one, or creating their next competition.
 
 The one-time fee monetization aligns with how users naturally organize fitness bets or events (one-off, time-bound). It avoids the fatigue of yet another subscription ￼, while still providing a revenue stream when the app’s popularity grows and big communities partake. We will carefully monitor user reception to this model; if small-scale personal use needs to be free to compete with alternatives, we ensure at least basic usage is free and only larger scale or special features incur fees.
 
-In summary, FitChal’s PRD lays out a comprehensive yet focused plan to deliver a cross-platform, challenge-centric fitness app. By learning from and improving upon existing solutions – offering flexible integrations, easy sharing, and a clear pay-per-challenge model – FitChal is positioned to carve out a strong niche in the fitness app market, turning every workout into an opportunity for friendly competition and group achievement.
+In summary, FitGrit’s PRD lays out a comprehensive yet focused plan to deliver a cross-platform, challenge-centric fitness app. By learning from and improving upon existing solutions – offering flexible integrations, easy sharing, and a clear pay-per-challenge model – FitGrit is positioned to carve out a strong niche in the fitness app market, turning every workout into an opportunity for friendly competition and group achievement.
 
 Sources:
 	•	Trafft – Group fitness app benefits and Fitbit social features ￼ ￼
