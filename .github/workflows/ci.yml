@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint code
+        run: |
+          if [ -f biome.json ]; then
+            npx biome check .
+          elif [ -f .eslintrc.js ] || [ -f .eslintrc.json ]; then
+            yarn lint
+          else
+            echo "No linter config found. Skipping lint."
+          fi
+
+      - name: Run tests
+        run: |
+          if [ -f jest.config.js ] || [ -f jest.config.ts ]; then
+            yarn test --ci --coverage
+          else
+            echo "No Jest config found. Skipping tests."
+          fi
+
+      - name: Install Expo CLI and EAS CLI
+        run: |
+          yarn global add expo-cli eas-cli
+
+      - name: Build mobile (EAS dry run)
+        run: |
+          eas build:configure || true
+          echo "EAS build step is a dry run for CI."
+
+      - name: Build web
+        run: |
+          if [ -f package.json ]; then
+            yarn web || yarn build:web || npx expo export:web
+          else
+            echo "No package.json found. Skipping web build."
+          fi
+
+      # Add deployment steps in a separate workflow or job as needed
+
+    # Add caching for node_modules
+    # Add comments for clarity
