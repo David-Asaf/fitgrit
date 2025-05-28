@@ -49,7 +49,7 @@ jobs:
 
       - name: Build web
         run: |
-          npx expo export:web || echo "Web build failed or not configured"
+          npx expo export --platform web || echo "Web build failed or not configured"
 
     # Add caching for node_modules
     # Add comments for clarity
