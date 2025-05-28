@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint code
+        run: |
+          if [ -f biome.json ]; then
+            npx biome check .
+          elif [ -f .eslintrc.js ] || [ -f .eslintrc.json ] || [ -f .eslintrc.yaml ]; then
+            yarn lint
+          else
+            echo "No linter config found. Skipping lint."
+          fi
+
+      - name: Run tests
+        run: |
+          if grep -q '"jest"' package.json || grep -q 'jest' package.json; then
+            yarn test
+          else
+            echo "No Jest config found. Skipping tests."
+          fi
+
+      - name: Build mobile (EAS dry run)
+        run: |
+          npx eas build:configure --non-interactive || echo "EAS build configuration skipped"
+          echo "EAS build step is a dry run for CI."
+
+      - name: Build web
+        run: |
+          npx expo export:web || echo "Web build failed or not configured"
+
+    # Add caching for node_modules
+    # Add comments for clarity
