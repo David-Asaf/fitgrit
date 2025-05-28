@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "generatedAt": "2025-05-28T03:44:51.538Z",
+    "tasksAnalyzed": 15,
+    "totalTasks": 15,
+    "analysisCount": 15,
+    "thresholdScore": 5,
+    "projectName": "Taskmaster",
+    "usedResearch": true
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Setup Project Repository and CI/CD Pipeline",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break down the setup of a React Native (Expo SDK 50+) project repository, configuration of GitHub Actions for CI/CD, EAS build pipelines for iOS and Android, Sentry integration, Expo Updates setup, and team access management into detailed, actionable subtasks.",
+      "reasoning": "This task involves multiple technical domains: initializing a modern Expo project, configuring automated CI/CD workflows (which can be intricate for React Native apps), setting up EAS build for two platforms, integrating Sentry, configuring OTA updates, and managing permissions. Each area requires distinct steps and validation, making the overall complexity above average.[1][2][3][5]"
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Design and Implement Core Database Schema",
+      "complexityScore": 8,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Expand the database schema design and implementation into subtasks covering table creation, PK/FK constraints, composite indexing, row-level security, scalability validation, and performance testing for leaderboard queries.",
+      "reasoning": "Designing a scalable, secure schema for high write volume and complex queries (leaderboards) with proper constraints and indexes is a significant architectural challenge. It also requires performance validation and security configuration, increasing the complexity."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Implement Authentication and User Management",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Decompose authentication and user management into subtasks for integrating each auth method (email/password, Apple, Google, magic link), session management, password reset, account lockout, and secure token storage.",
+      "reasoning": "Supporting multiple authentication flows, secure session handling, and robust account security (lockout, password reset, encrypted token storage) requires careful integration and testing, especially across platforms."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Develop Health Data Integration",
+      "complexityScore": 8,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Break down health data integration into subtasks for HealthKit and Google Fit/Health Connect setup, permission handling, data sync logic, token encryption, and Fitbit API preparation.",
+      "reasoning": "Integrating with multiple health data providers, handling permissions, syncing data accurately, and preparing for future integrations is technically demanding and requires attention to privacy and security."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Build Challenge Creation and Management",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Expand challenge creation and management into subtasks for wizard UI steps, deep-link invite generation, database persistence, dashboard integration, and testing.",
+      "reasoning": "Building a multi-step wizard, supporting deep-link invites, and ensuring seamless database and dashboard integration involves both frontend and backend work, with moderate complexity."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Implement Challenge Invitation and Join Flow",
+      "complexityScore": 8,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Decompose the invitation and join flow into subtasks for deep-link generation, app store redirect handling, onboarding persistence, authentication integration, and challenge join logic.",
+      "reasoning": "Handling deep links across platforms, onboarding flows, authentication, and ensuring data sync before joining a challenge involves complex cross-cutting concerns and edge cases."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Develop Real-time Leaderboard",
+      "complexityScore": 8,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Break down the real-time leaderboard into subtasks for Supabase Realtime integration, pagination, offline caching, rank calculation, infinite scroll, and UI testing.",
+      "reasoning": "Implementing real-time updates, efficient pagination, offline support, and accurate ranking for large datasets is technically challenging and performance-sensitive."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Implement Challenge Chat",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Expand challenge chat into subtasks for real-time messaging, emoji reactions, admin moderation, message delivery optimization, and performance testing.",
+      "reasoning": "Building a real-time chat with moderation and performance guarantees requires careful backend and frontend coordination, but is a well-understood pattern."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Develop Push Notifications",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Decompose push notification implementation into subtasks for Expo Push setup, FCM/APNS integration, topic subscription, event trigger logic, and delivery testing.",
+      "reasoning": "Integrating push notifications with topic-based subscriptions and event triggers across platforms is moderately complex, especially with rate limits and delivery guarantees."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Implement In-App Purchase for Challenge Fees",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break down in-app purchase implementation into subtasks for RevenueCat integration, pricing display, payment flow, error handling, and challenge status updates.",
+      "reasoning": "Implementing in-app purchases with RevenueCat, handling payment failures, and updating challenge status involves multiple platform-specific and transactional concerns."
+    },
+    {
+      "taskId": 11,
+      "taskTitle": "Develop Data Merge and Deduplication Logic",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Expand data merge and deduplication into subtasks for primary source selection, duplicate detection logic, per-metric aggregation, leaderboard update, and testing.",
+      "reasoning": "Deduplicating time-series health data from multiple sources and ensuring leaderboard accuracy requires careful logic and validation."
+    },
+    {
+      "taskId": 12,
+      "taskTitle": "Implement Admin Actions and Moderation",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Decompose admin actions into subtasks for participant removal UI, notification logic, leaderboard recalculation, audit report generation, and permission checks.",
+      "reasoning": "Admin tools for moderation, notifications, and audit reporting require secure, reliable implementation but are conceptually straightforward."
+    },
+    {
+      "taskId": 13,
+      "taskTitle": "Develop Manual Entry Fallback",
+      "complexityScore": 6,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down manual entry fallback into subtasks for entry UI, capping logic, flagging, audit report integration, and admin review.",
+      "reasoning": "Manual entry with capping and audit features is less complex but still requires careful validation and admin tooling."
+    },
+    {
+      "taskId": 14,
+      "taskTitle": "Implement Privacy and Security Controls",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Expand privacy and security controls into subtasks for privacy policy integration, data retention logic, account deletion workflow, and HIPAA-grade data handling validation.",
+      "reasoning": "Implementing privacy, retention, and deletion features with regulatory compliance (HIPAA) adds significant responsibility and technical detail."
+    },
+    {
+      "taskId": 15,
+      "taskTitle": "Implement Analytics and Monitoring",
+      "complexityScore": 6,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Decompose analytics and monitoring into subtasks for PostHog integration, event tracking, retention reporting, performance monitoring, and alert setup.",
+      "reasoning": "Integrating analytics and monitoring tools is a standard process, with moderate complexity focused on correct event tracking and reporting."
+    }
+  ]
+}
