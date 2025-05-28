@@ -25,22 +25,10 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Lint code
-        run: |
-          if [ -f biome.json ]; then
-            npx biome check .
-          elif [ -f .eslintrc.js ] || [ -f .eslintrc.json ] || [ -f .eslintrc.yaml ]; then
-            yarn lint
-          else
-            echo "No linter config found. Skipping lint."
-          fi
+        run: yarn lint
 
       - name: Run tests
-        run: |
-          if grep -q '"jest"' package.json || grep -q 'jest' package.json; then
-            yarn test
-          else
-            echo "No Jest config found. Skipping tests."
-          fi
+        run: yarn test
 
       - name: Build mobile (EAS dry run)
         run: |
